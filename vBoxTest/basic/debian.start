@@ -1,0 +1,3 @@
+#! /bin/bash
+
+VBoxManage startvm "deb9.9" --type headless

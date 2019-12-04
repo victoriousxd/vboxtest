@@ -1,0 +1,8 @@
+#!/bin/bash
+
+./debian.start
+sleep 5
+./debian.clean
+./debian.runNonBlocking $1 $2
+./debian.readLog
+./debian.

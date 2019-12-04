@@ -1,0 +1,10 @@
+#!/bin/bash
+
+VM=$1
+EXE=$2
+
+// create folder for executable
+PATH =  "/Users/bruce/Documents/435/glassbox/vBoxTest/" + $2 
+
+
+VBoxManage guestcontrol $VM copyfrom "/var/log/audit" $PATH --username root --passwordfile mypassword.txt

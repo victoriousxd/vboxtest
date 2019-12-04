@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+count = 3
+for i in {3..1}
+do
+    command = 0
+    mysnaps=$(VBoxManage snapshot cmsc433-vm take copy$i)
+
+    echo "$mysnaps"
+done
+mysnaps=$(VBoxManage snapshot cmsc433-vm list)
+
+echo "$mysnaps"
+
+cp /media/cdrom/vBoxTest/go-audit.yaml /home
