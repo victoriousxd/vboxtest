@@ -1,8 +1,11 @@
 #!/bin/bash
-
-./debian.start
-sleep 5
-./debian.clean
-./debian.runNonBlocking $1 $2
-./debian.readLog
-./debian.
+time=20
+cd utility
+./start.sh $1
+echo "sleeping " $time " seconds"
+sleep $time
+echo "and we're back..."
+./clean.sh $1
+./runExe.sh $1 $2 $3
+./readLog.sh $1 $2
+./poweroff.sh $1

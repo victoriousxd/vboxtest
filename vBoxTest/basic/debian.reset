@@ -1,3 +1,0 @@
-#!/bin/bash
-
-VBoxManage controlvm "deb9.9" reset
