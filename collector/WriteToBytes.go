@@ -28,21 +28,8 @@ var stringTypes = []string{"Iface", "Ip", "MAC", "TimeStamp", "Comm", "Exe",
 
 
 
-// types represented by 1 byte
-var byteTypes = []string{"success"}
-var int16Types = []string{"exit","syscall"}
-// types represented by short
-var int32Types = []string{"Ppid", "Pid", "Auid", "Uid", "Gid", "Euid", "Suid", "Fsuid", "Egid", "Sgid", "Fsgid"}
 
-// 64 bit byte strings
-var int64Types = []string{ "A0", "A1", "A2", "A3", "Items" }
 
-var emptyValues = []string{"", "(none)"}
-
-func markPresent(yeet sysCallInfo, i int , valueName string, value []byte){
-
-}
-*/
 
 //var present = make([]bytes,3)
 

@@ -2,8 +2,7 @@ import json
 import numpy as np
 import fileinput
 import re 
-from os import listdir
-from os.path import isfile, join
+
 # Victoria Hong
 # Parser.py handles input from go-audit.
 # Used as library, can be run for demo purposes
@@ -70,15 +69,7 @@ def dataParseFile( line, wants):
 
     return list(output.values())
 
-def dataParseRaw(path):
-    f = open(path,"r")
-    wtf = f.readlines()
-    for line in wtf:
-        if line[5:12] == "SYSCALL":
-            result = re.search(rx,line)
-            print(result.groupdict())
-        
-        
+
 
     
 
@@ -143,12 +134,39 @@ def processStreamBatch(rabbitInput):
         return [dataParse(line) for line in rabbitInput]
 
 
+def dataParseRaw(path):
+    f = open(path,"r")
+    wtf = f.readlines()
+
+    for line in wtf:
+        if line[5:12] == "SYSCALL":
+            result = re.search(rx,line)
+            print(result.groupdict())
+            if len(data) != len(wants):
+                # TODO: exit or skip improperly formatted data?
+                print("Missing property found at {}:\n{}", lineNumber, line)
+                #exit(-1)  # shouldn't read corrupt data, exit
+            else:
+                lineNumber += 1
+                batch.append(data)
+                if lineNumber % batchSize == 0:
+                    batches.append(batch)
+                    batch = []
+
+    if len(batch) > 0:
+        batches.append(batch)
+
+    return batches
+
+
 def appendExeFiles(mypath):
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
     onlyfiles.sort()
     print(onlyfiles)
 
-PATH = "/Users/bruce/Documents/435/glassbox/vBoxTest/audit/"
+
+
+PATH = "/home/carla/Desktop/mycpy/vboxtest/vBoxTest/audit/lol.py"
 appendExeFiles(PATH)
 #dataParseRaw(PATH)
 
