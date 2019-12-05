@@ -95,6 +95,8 @@ Copy the collector binary (collectorSource) and config file (go-audit.yaml) into
 
 They are found in vBoxTest/collectorSource.
 
+Update virtual macine root password with **mypassword.txt in vboxtest/vBoxTest/basic/utility/
+
 ### KNOWN ISSUES
 
 Reading logs can hang especially if the files are too large.
