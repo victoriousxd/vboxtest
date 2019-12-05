@@ -16,7 +16,7 @@ A sample virtual appliance (deb9.ova) has been provided to get started.
 
 #### vbox.ini sample file
 
->***[linux/mac]***
+***[linux/mac]***
 home_dir = /home/carla/Desktop/mycpy/   # base folder of vboxtest
 est_files = vboxtest/vBoxTest/audit     # where results go
 bad_files = vboxtest/badstuff           # where compressed executables go
