@@ -16,9 +16,10 @@ The machine is reset to a clean snapshot and ready to run another executable.
 ***
 __PLEASE NOTE__
 This is a beta version. Not tested on Windows. Needs to be monitored in case of hanging.
-A sample virtual appliance (deb9.ova) has been provided to get started. 
-
-
+A sample virtual appliance (deb9.ova) can be found [here.](https://drive.google.com/open?id=1uBGywA5ym34UVLkAE4QpdcPiu8STqqsx)
+root/password
+ : meow/meow
+ 
 ### INITIAL SET UP
 1. Change directory to **vBoxTest/basic** folder
 2. Install appliance on virtual box 
