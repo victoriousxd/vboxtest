@@ -1,6 +1,5 @@
 # vboxtest
 
-##### DESCRIPTION
 Virtual Box Tester (VBT) is a tool that uses a preloaded virtual box image to record data on malware.
 
 **How it works**
