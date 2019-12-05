@@ -20,13 +20,15 @@ Once the executables are loaded on the guest, it will run all of the executables
 ###__PLEASE NOTE__
 This is a beta version. Not tested on Windows. Needs to be monitored in case of hanging.
 A sample virtual appliance (deb9.ova) can be found [here.](https://drive.google.com/open?id=1uBGywA5ym34UVLkAE4QpdcPiu8STqqsx)
-root/password
- : meow/meow
- 
+
+root/password are both meow
+
+
 ### INITIAL SET UP
-1. Install appliance on virtual box 
-2. set **home folder and master_vm** in `/basic/vbox.ini`
-3. Take a snapshot before loading.
+1. Install VirtualBox and Python3.
+2. Install appliance on virtual box 
+3. set **home folder and master_vm** in `/basic/vbox.ini`
+4. Take a snapshot before loading.
 
 
 #### vbox.ini sample file
