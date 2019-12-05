@@ -106,3 +106,8 @@ Also considering working on using /bin/cat to read log files and parse them thro
 
 ***
 
+### Acknowledgements
+- Dr. Jim Purtilo - Professor/Advisor/Mentor
+- Kevin Hogan - Client/Mentor
+
+
