@@ -1,9 +1,22 @@
 # vboxtest
 
-# Virtual Box Tester README
-***
-This is a beta version. Not tested on Windows. Needs to be monitored in case of hanging.
+##### DESCRIPTION
+Virtual Box Tester (VBT) is a tool that uses a preloaded virtual box image to record data on malware.
 
+**How it works**
+:	VBT is preloaded with a version of our collector that can run a program before auditing it. 
+	VBT can take a zipped file of executables and extract them into a virtual machine. 
+Once the executables are loaded on the guest, it will run all of the executables through the collector. Each time the collector is run with a new executable, the virtual machine generates new audit logs for the host machine to collect. Once the logs are collected,
+The machine is reset to a clean snapshot and ready to run another executable. 
+
+
+**Languages**
+ :	Go, Bash, Python, VBoxManage
+
+
+***
+__PLEASE NOTE__
+This is a beta version. Not tested on Windows. Needs to be monitored in case of hanging.
 A sample virtual appliance (deb9.ova) has been provided to get started. 
 
 
@@ -25,14 +38,15 @@ time = 5s                               # how long recording should take 1m
 master_vm = deb9                        # name of the virtual machine you're using
 ```
 ### LOAD FILES ON TO VM
+
+run ``./initialize Example_Viruses.zip``
+
 1. Compress viruses into zip folder
 2. Placed zip in **bad_files** folder from vbox.ini
 3. Run initialize.py with title of zip as argument
     *this copies folders to vm
     *then creates a list with all the file names
 4. Take snapshot of clean virtual machine with loaded files
-
-``./initialize Example_Viruses.zip``
 
 ### GENERATE LOGS
 run ``./rawParse.py``
@@ -50,17 +64,28 @@ For every file in fileList.txt:
 
 
 ## READ LOGS
-glassbox/Glassbox1.1/API.py
-##### processFileGzip(fpath_, wants)
-fpath
- : is the file path of the gzip file
- 
-wants
- : list of wanted syscall properties to collect i.e. ['pid','syscall','exe'] 
+1. Open file as gzip
+2. Read each line as JSON.
+
+```python
+#!/usr/bin/python3
+import json
+import gzip
+path = "../vboxtest/vBoxTest/audit/VirusShare_000b031c08f518e06fc5fa7ffcf476d8.gzip"
+f = gzip.open(path,'rb')
+line = f.readline()
+while line:
+    stuff = json.loads(line)
+    exe = stuff['exe']
+    # do some stuff...
+    if exe != "/usr/lib/erlang/erts-10.5.5/bin/beam.smp":
+        print(exe)
+
+```
 
 ### CLEAN UP
 Restore the original snapshot of the virtual machine.
-From there you can load files and run rawParse again.
+From there you can load files and run ./rawParse again.
 
 ### SET UP GUEST MACHINE
 The guest machine must have Go, Python, and auditctl installed. 
