@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 from helper import *
 import subprocess
-from os import listdir
-from os.path import isfile, join
 
 
 virusList = open('utility/fileList.txt',"r").readlines()
@@ -16,7 +14,7 @@ for x in virusList:
     try:
         subprocess.run(comm, shell=True, check=True)
     except:
-        ""
+        ""        
        
     
     appendLogs(test_file_directory,finalName)
