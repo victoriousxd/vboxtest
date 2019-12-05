@@ -13,7 +13,7 @@ Once the executables are loaded on the guest, it will run all of the executables
  :	Go, Bash, Python
  
  **Application**
- : VirtualBox, VBoxManage
+ : VirtualBox, VBoxManage, Go-Audit
 
 
 ***
