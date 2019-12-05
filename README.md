@@ -24,17 +24,16 @@ root/password
  : meow/meow
  
 ### INITIAL SET UP
-1. Change directory to **vBoxTest/basic** folder
-2. Install appliance on virtual box 
-3. set **home folder and master_vm** in /basic/vbox.ini
-4. Take a snapshot before loading.
+1. Install appliance on virtual box 
+2. set **home folder and master_vm** in `/basic/vbox.ini`
+3. Take a snapshot before loading.
 
 
 #### vbox.ini sample file
 ```
 ***[linux/mac]***
 home_dir = /home/carla/Desktop/mycpy/   # base folder of vboxtest
-est_files = vboxtest/vBoxTest/audit     # where results go
+test_files = vboxtest/vBoxTest/audit    # where results go
 bad_files = vboxtest/badstuff           # where compressed executables go
 ***[userVar]***
 time = 5s                               # how long recording should take i.e. 1m is 1min
@@ -45,10 +44,10 @@ master_vm = deb9                        # name of the virtual machine you're usi
 run ``./initialize Example_Viruses.zip``
 
 1. Compress viruses into zip folder
-2. Placed zip in **bad_files** folder from vbox.ini
-3. Run initialize.py with title of zip as argument
-    *this copies folders to vm
-    *then creates a list with all the file names
+2. Placed zip in **bad_files** folder from **vbox.ini**
+3. Run `./initialize.py` with title of zip as argument
+    * this copies folders to the guest virtual machine
+    * then creates a list with all the file names in `vboxtest/vBoxTest/basic/utility/fileList.txt`
 4. Take snapshot of clean virtual machine with loaded files
 
 ### GENERATE LOGS
@@ -58,10 +57,11 @@ If configs are set up correctly... this is what happens:
 For every file in fileList.txt:
 
 1. Starts the virtual machine
-2. Execute /home/collector on guest machine for x seconds.
-    :-runs executable .
-    -enerates logs in **/var/log/audit**.
-3  . copy logs to test_files directory.
+2. Execute `/home/collector` on guest machine for x seconds which :
+    * runs executable  
+    * enerates logs in `/var/log/audit`
+    
+3. copy logs to **test_files** directory.
 4. parses logs for syscalls and combines them into a gzip file.
 
 
@@ -69,6 +69,7 @@ For every file in fileList.txt:
 ## READ LOGS
 1. Open file as gzip
 2. Read each line as JSON.
+### Example
 
 ```python
 #!/usr/bin/python3
@@ -88,19 +89,18 @@ while line:
 
 ### CLEAN UP
 Restore the original snapshot of the virtual machine.
-From there you can load files and run ./rawParse again.
+From there you can load files and run `./rawParse` again.
 
 ### SET UP GUEST MACHINE
 1. Install Virtual Box Guest Additions.
 
-2. Install Go, Python, and auditctl
-    Install script available for Linux users: /vboxtext/install.sh
+2. Install Go, Python, and auditctl. Install script available for Linux users: `/vboxtext/install.sh`
 
 2. Copy the collector binary (collectorSource) and config file (go-audit.yaml) into /home/ on the guest machine.
 
 3. They are found in vBoxTest/collectorSource.
 
-Update virtual macine root password with **mypassword.txt in vboxtest/vBoxTest/basic/utility/
+Update virtual macine root password with **mypassword.txt** in `vboxtest/vBoxTest/basic/utility/`
 
 ### KNOWN ISSUES
 
