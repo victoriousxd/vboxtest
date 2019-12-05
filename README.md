@@ -36,6 +36,7 @@ master_vm = deb9                        # name of the virtual machine you're usi
 
 ### GENERATE LOGS
 run ``./rawParse.py``
+
 If configs are set up correctly... this is what happens:
 For every file in fileList.txt:
 
