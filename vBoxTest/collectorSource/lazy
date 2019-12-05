@@ -1,7 +1,0 @@
-go build
-
-rm /home/cs/collectorSource
-rm /home/cs/idk.sh
-
-cp /media/cdrom/vBoxTest/collectorSource/collectorSource /home/cs/
-cp /media/cdrom/vBoxTest/collectorSource/idk.sh /home/cs/

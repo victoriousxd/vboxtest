@@ -1,3 +1,0 @@
-#!/bin/bash
-
-basic/debian.run "/bin/cat" "/home/meow/log.txt" 
