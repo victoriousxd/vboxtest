@@ -8,6 +8,7 @@ Virtual Box Tester (VBT) is a tool that uses a preloaded virtual box image to re
 Once the executables are loaded on the guest, it will run all of the executables through the collector. Each time the collector is run with a new executable, the virtual machine generates new audit logs for the host machine to collect. Once the logs are collected,
 The machine is reset to a clean snapshot and ready to run another executable. 
 
+![VBox Diagram](./VBoxDiagram.jpg)
 
 **Languages**
  :	Go, Bash, Python, VBoxManage
@@ -104,4 +105,4 @@ Also considering working on using /bin/cat to read log files and parse them thro
 
 
 ***
-![VBox Diagram](./VBoxDiagram.jpg)
+
