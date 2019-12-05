@@ -10,11 +10,14 @@ Once the executables are loaded on the guest, it will run all of the executables
 ![VBox Diagram](./VBoxDiagram.jpg)
 
 **Languages**
- :	Go, Bash, Python, VBoxManage
+ :	Go, Bash, Python
+ 
+ **Application**
+ : VirtualBox, VBoxManage
 
 
 ***
-__PLEASE NOTE__
+###__PLEASE NOTE__
 This is a beta version. Not tested on Windows. Needs to be monitored in case of hanging.
 A sample virtual appliance (deb9.ova) can be found [here.](https://drive.google.com/open?id=1uBGywA5ym34UVLkAE4QpdcPiu8STqqsx)
 root/password
@@ -88,12 +91,14 @@ Restore the original snapshot of the virtual machine.
 From there you can load files and run ./rawParse again.
 
 ### SET UP GUEST MACHINE
-The guest machine must have Go, Python, and auditctl installed. 
-Use the install script in /glassbox1.1/collector/ to get it set up. 
+1. Install Virtual Box Guest Additions.
 
-Copy the collector binary (collectorSource) and config file (go-audit.yaml) into /home/ on the guest machine.
+2. Install Go, Python, and auditctl
+    Install script available for Linux users: /vboxtext/install.sh
 
-They are found in vBoxTest/collectorSource.
+2. Copy the collector binary (collectorSource) and config file (go-audit.yaml) into /home/ on the guest machine.
+
+3. They are found in vBoxTest/collectorSource.
 
 Update virtual macine root password with **mypassword.txt in vboxtest/vBoxTest/basic/utility/
 
