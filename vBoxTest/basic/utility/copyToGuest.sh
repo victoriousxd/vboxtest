@@ -1,25 +1,18 @@
-    #!/bin/bash
-     
-    echo $0
-     
-    full_path=$(realpath $0)
-    echo $full_path
-     
-    dir_path=$(dirname $full_path)
-    echo $dir_path
-     
-    examples=$(dirname $dir_path )
-    echo $examples
-     
-    data_dir="$examples/data"
-    echo "DATA: $data_dir"
-     
-     
-     
+#!/bin/bash
+
 VM=$1
-FILES=$2
+SRC=$2
+ZIPFILENAME=$3
 
-# file to copy 
-PATH =  "/home/carla/Desktop/mycpy/vboxtest/badstuff" + $2 
+DEST="/home/"
+echo $1
+echo $SRC
+echo $ZIPFILENAME
+VBoxManage guestcontrol $VM copyto $SRC $DEST  --username root --passwordfile mypassword.txt
+echo "copied"
+VBoxManage --nologo guestcontrol $VM run --exe /home/clean.sh --username root --password meow \ --{$VM_EXEC}/arg0 $ZIPFILENAME 
+echo "cleaned"
+VBoxManage --nologo guestcontrol $VM run --exe /bin/ls --username root --password meow \ --{$VM_EXEC}/arg0 /home/badstuff >> fileList.txt
 
-VBoxManage guestcontrol $VM copyfrom "/var/log/audit" $PATH --username root --passwordfile mypassword.txt
+
+

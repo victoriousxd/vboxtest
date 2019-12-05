@@ -8,5 +8,5 @@ echo "$EXE"
 BASE="/home/carla/Desktop/mycpy/vboxtest/vBoxTest/audit/"
 FOLDER="$BASE$EXE"
 echo $FOLDER
-#mkdir $FOLDER
+mkdir $FOLDER
 VBoxManage guestcontrol $VM copyfrom /var/log/audit/  $FOLDER --username root --passwordfile mypassword.txt

@@ -1,32 +1,26 @@
 #!/usr/bin/python3
-
-import configparser
-
-
 from helper import *
-batchSize = 64 # size of each batch
+import subprocess
+from os import listdir
+from os.path import isfile, join
 
 
+virusList = open('utility/fileList.txt',"r").readlines()
+for x in virusList:
+    name = x.strip()
+    test_file_directory = home_dir+test_files+sep+name
+    finalName ="{}.gzip".format(test_file_directory)
+    print("converting directory {} to file {}".format(test_file_directory,finalName))
+    comm = "./execute.sh {} {} {}".format(master_vm,name,time)
+    
+    try:
+        subprocess.run(comm, shell=True, check=True)
+    except:
+        ""
+       
+    
+    appendLogs(test_file_directory,finalName)
+    
 
-# set up from config file
-config = configparser.ConfigParser()
-config.read('vbox.ini')
-
-home_dir = config['paths']['home_dir']
-master_vm = config['paths']['master_vm']
-test_files = config['paths']['test_files']
-time = config['paths']['time']
-
-name ="lol.py"
-
-test_file_directory = home_dir+test_files+sep+name
-
-
-finalName = home_dir+test_files+sep+name+".gzip"
-
-
-appendLogs(test_file_directory,finalName)
-
-
-
+    subprocess.run("rm -r /home/carla/Desktop/mycpy/vboxtest/vBoxTest/audit/{}".format(name), shell=True, check=True)
 

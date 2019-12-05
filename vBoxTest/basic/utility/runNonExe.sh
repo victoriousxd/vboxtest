@@ -1,6 +1,4 @@
 #!/bin/bash
-comm=/bin/$2
+comm=/var/log/catlogs.py
 echo comm
-VBoxManage guestcontrol $1 run --exe $comm --username root --passwordfile mypassword.txt  --wait-stdout -- ls /home/exe -- $2 $3
-
-
+VBoxManage guestcontrol $1 run --exe $comm --username root --passwordfile mypassword.txt  --wait-stdout
