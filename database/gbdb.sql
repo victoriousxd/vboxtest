@@ -1,1 +1,0 @@
-create table syscalls (sequence varchar primary key, network varchar, success bool, syscall smallint, exit smallint, ppid int, pid int, auid int, uid int, gid int, euid int, suid int, fsuid int, egid int, sgid int, fsgid int, A0 bigint, A1 bigint, A2 bigint, A3 bigint, ts varchar, comm varchar, exe varchar, subj varchar, ky varchar, tty varchar)
