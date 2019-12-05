@@ -34,7 +34,7 @@ home_dir = /home/carla/Desktop/mycpy/   # base folder of vboxtest
 est_files = vboxtest/vBoxTest/audit     # where results go
 bad_files = vboxtest/badstuff           # where compressed executables go
 ***[userVar]***
-time = 5s                               # how long recording should take 1m
+time = 5s                               # how long recording should take i.e. 1m is 1min
 master_vm = deb9                        # name of the virtual machine you're using
 ```
 ### LOAD FILES ON TO VM
