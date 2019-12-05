@@ -3,7 +3,7 @@
 Virtual Box Tester (VBT) is a tool that uses a preloaded virtual box image to record data on malware.
 
 **How it works**
-:	VBT is preloaded with a version of our collector that can run a program before auditing it. 
+:	VBT is preloaded with a system auditor that can change kernel logging rules and audit specific programs.
 	VBT can take a zipped file of executables and extract them into a virtual machine. 
 Once the executables are loaded on the guest, it will run all of the executables through the collector. Each time the collector is run with a new executable, the virtual machine generates new audit logs for the host machine to collect. Once the logs are collected, the machine is reset to a clean snapshot and ready to run another executable. 
 
