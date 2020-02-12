@@ -17,7 +17,7 @@ Once the executables are loaded on the guest, it will run all of the executables
 
 
 ***
-###__PLEASE NOTE__
+### __PLEASE NOTE__
 This is a beta version. Not tested on Windows. Needs to be monitored in case of hanging.
 A sample virtual appliance (deb9.ova) can be found [here.](https://drive.google.com/open?id=1uBGywA5ym34UVLkAE4QpdcPiu8STqqsx)
 
@@ -59,9 +59,9 @@ If configs are set up correctly... this is what happens:
 For every file in fileList.txt:
 
 1. Starts the virtual machine
-2. Execute `/home/collector` on guest machine for x seconds which :
+2. Execute `/home/collector` on guest machine for set time which :
     * runs executable  
-    * enerates logs in `/var/log/audit`
+    * generates logs in `/var/log/audit`
     
 3. copy logs to **test_files** directory.
 4. parses logs for syscalls and combines them into a gzip file.
@@ -98,11 +98,9 @@ From there you can load files and run `./rawParse` again.
 
 2. Install Go, Python, and auditctl. Install script available for Linux users: `/vboxtext/install.sh`
 
-2. Copy the collector binary (collectorSource) and config file (go-audit.yaml) into /home/ on the guest machine.
+3. Copy the collector binary (collectorSource) and config file (go-audit.yaml) into /home/ on the guest machine. They are found in vBoxTest/collectorSource.
 
-3. They are found in vBoxTest/collectorSource.
-
-Update virtual macine root password with **mypassword.txt** in `vboxtest/vBoxTest/basic/utility/`
+4. Update virtual machine root password with **mypassword.txt** in `vboxtest/vBoxTest/basic/utility/`
 
 ### KNOWN ISSUES
 
